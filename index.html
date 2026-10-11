@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Copenhagen to Malaga, direct flights | CPH → AGP fare tracker</title>
+<meta name="description" content="Tracked direct fares Copenhagen (CPH) to Malaga (AGP) on SAS, Norwegian and Ryanair. From about 187 DKK one way. Checked daily.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Copenhagen → Malaga, direct flights">
+<meta property="og:description" content="Direct CPH → AGP fares from about 187 DKK one way. SAS, Norwegian & Ryanair, late Oct 2026 to early Apr 2027, checked daily.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Copenhagen → Malaga, direct flights">
+<meta name="twitter:description" content="Direct CPH → AGP fares from about 187 DKK one way. Checked daily.">
+<meta name="theme-color" content="#0f3d5e">
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--ink:#14212b;--muted:#5b6b78;--accent:#0f3d5e;--sun:#f29f05;--good:#0a7d4f;--line:#e3e8ee}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-text-size-adjust:100%}
+header{background:linear-gradient(135deg,#0f3d5e 0%,#1d6f8f 60%,#f29f05 140%);color:#fff;padding:32px 20px 40px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+header .wrap{padding:0}
+.route{display:flex;align-items:center;gap:12px;font-size:2.2rem;font-weight:800;letter-spacing:.02em}
+.route .plane{font-size:1.6rem;opacity:.9}
+h1{margin:6px 0 4px;font-size:1.35rem;font-weight:600}
+header p{margin:0;opacity:.88;font-size:.95rem}
+main{margin-top:-22px;padding-bottom:40px}
+.card{background:var(--card);border-radius:16px;padding:18px;margin:0 0 16px;box-shadow:0 2px 10px rgba(15,61,94,.08);border:1px solid var(--line)}
+h2{margin:0 0 4px;font-size:1.1rem}
+.sub{margin:0 0 14px;color:var(--muted);font-size:.85rem}
+.fares{display:grid;gap:10px}
+.fare{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:#f8fafc;border:1px solid var(--line)}
+.fare.best{border-color:var(--good);background:#effaf4}
+.fare .date{font-weight:700}
+.fare .meta{color:var(--muted);font-size:.85rem}
+.price{font-size:1.4rem;font-weight:800;color:var(--accent);white-space:nowrap}
+.fare.best .price{color:var(--good)}
+.price small{font-size:.75rem;font-weight:600;color:var(--muted)}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:99px;background:var(--good);color:#fff;margin-left:6px;vertical-align:middle}
+.airlines{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+.chip{padding:4px 10px;border-radius:99px;background:#e9f1f7;color:var(--accent);font-size:.8rem;font-weight:600}
+.empty{padding:16px;border:2px dashed var(--line);border-radius:12px;text-align:center;color:var(--muted);font-size:.92rem}
+.pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sun);margin-right:6px;animation:p 1.6s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:.93rem}
+dt{color:var(--muted)}
+dd{margin:0;font-weight:600}
+ul{margin:0;padding-left:20px}
+li{margin:4px 0}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:0 16px 32px}
+@media (max-width:420px){.route{font-size:1.8rem}.price{font-size:1.2rem}dl{grid-template-columns:1fr}dt{margin-top:6px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="route">CPH <span class="plane">✈</span> AGP</div>
+    <h1>Copenhagen to Malaga, direct flights</h1>
+    <p>One way · 1 adult · prices in DKK · nonstop only</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="card">
+    <h2>Best direct fares right now</h2>
+    <p class="sub">Advertised starting fares from Ryanair's route page, checked Sun 11 Oct 2026. Flight time about 3h 50m.</p>
+    <div class="fares" id="best-fares"></div>
+  </section>
+
+  <section class="card">
+    <h2>Live fares: SAS, Norwegian, Ryanair</h2>
+    <p class="sub">Live prices per airline and date.</p>
+    <div class="fares" id="live-fares"></div>
+    <div class="airlines">
+      <span class="chip">SAS</span><span class="chip">Norwegian</span><span class="chip">Ryanair</span>
+    </div>
+    <p class="sub" style="margin:10px 0 0">Only these three airlines fly Copenhagen to Malaga nonstop.</p>
+  </section>
+
+  <section class="card">
+    <h2>What's being watched</h2>
+    <dl>
+      <dt>Route</dt><dd>Copenhagen (CPH) → Malaga (AGP), direct only</dd>
+      <dt>Dates covered</dt><dd>Late October 2026 to early April 2027</dd>
+      <dt>Daily check</dt><dd>Every day at 09:08, Copenhagen time</dd>
+      <dt>Watch ends</dt><dd>31 March 2027</dd>
+    </dl>
+  </section>
+
+  <section class="card">
+    <h2>Alerts are sent when</h2>
+    <ul>
+      <li>A direct fare moves by about 15% or 100 DKK</li>
+      <li>A new lowest fare turns up</li>
+      <li>Any direct fare drops under 300 DKK</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Last updated</h2>
+    <p style="margin:0;font-weight:600" id="updated"></p>
+    <p class="sub" style="margin:6px 0 0">This page is updated as prices change. Prices can change at any time, so always check and book directly with the airline.</p>
+  </section>
+
+</main>
+
+<footer>CPH → AGP fare tracker</footer>
+
+<!-- ===================== FARE DATA: EDIT HERE ===================== -->
+<script id="fare-data">
+const FARE_DATA = {
+  lastUpdated: "Sun 11 Oct 2026, 23:10 (Copenhagen time, UTC+2)",
+  // Advertised starting fares (one way, 1 adult, DKK)
+  best: [
+    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "06:10", price: 187, approx: true },
+    { airline: "Ryanair", date: "Wed 6 Jan 2027",  dep: "06:00", price: 187, approx: true },
+    { airline: "Ryanair", date: "Sat 5 Dec 2026",  dep: "14:50", price: 229, approx: true }
+  ],
+  // Live fares: add rows like
+  // { airline: "SAS", date: "Fri 4 Dec 2026", dep: "10:35", price: 450 }
+  live: []
+};
+</script>
+<!-- ================================================================ -->
+
+<script>
+(function(){
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function row(f,isBest){
+    return '<div class="fare'+(isBest?' best':'')+'"><div><div class="date">'+esc(f.date)+
+      (isBest?'<span class="tag">Lowest</span>':'')+'</div><div class="meta">'+esc(f.airline)+' · departs '+esc(f.dep)+' · direct</div></div>'+
+      '<div class="price">'+(f.approx?'<small>about </small>':'')+esc(f.price)+' <small>DKK</small></div></div>';
+  }
+  function render(id,list,emptyHtml){
+    var el=document.getElementById(id);
+    if(!list.length){el.innerHTML=emptyHtml;return;}
+    var min=Math.min.apply(null,list.map(function(f){return f.price;}));
+    el.innerHTML=list.slice().sort(function(a,b){return a.price-b.price;}).map(function(f){return row(f,f.price===min);}).join("");
+  }
+  render("best-fares",FARE_DATA.best,'<div class="empty">No fares yet.</div>');
+  render("live-fares",FARE_DATA.live,'<div class="empty"><span class="pulse"></span>Live fares are being collected and will appear here.</div>');
+  document.getElementById("updated").textContent=FARE_DATA.lastUpdated;
+})();
+</script>
+</body>
+</html>
