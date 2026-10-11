@@ -34,6 +34,15 @@ h2{margin:0 0 4px;font-size:1.1rem}
 .fare .meta{color:var(--muted);font-size:.85rem}
 .price{font-size:1.4rem;font-weight:800;color:var(--accent);white-space:nowrap}
 .fare.best .price{color:var(--good)}
+.fare a.main{color:inherit;text-decoration:none;display:flex;justify-content:space-between;align-items:center;gap:12px;flex:1;min-width:0}
+.fare{flex-wrap:wrap}
+.actions{display:flex;align-items:center;gap:14px;width:100%;margin-top:2px}
+.btn{display:inline-block;padding:8px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;font-size:.85rem;text-decoration:none}
+.btn:active{opacity:.85}
+.fare.best .btn{background:var(--good)}
+.src{font-size:.8rem;color:var(--muted)}
+.avoid{margin:12px 0 0;padding:10px 12px;border-radius:10px;background:#fff4e5;color:#7a4b00;font-size:.85rem}
+.avoid:empty{display:none}
 .price small{font-size:.75rem;font-weight:600;color:var(--muted)}
 .tag{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:99px;background:var(--good);color:#fff;margin-left:6px;vertical-align:middle}
 .airlines{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
@@ -63,18 +72,20 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:0 16px 32px}
 
   <section class="card">
     <h2>Best direct fares right now</h2>
-    <p class="sub">Advertised starting fares from Ryanair's route page, checked Sun 11 Oct 2026. Flight time about 3h 50m.</p>
+    <p class="sub">First spotted as advertised fares on Ryanair's route page, now confirmed live on Google Flights (Sun 11 Oct 2026, 23:14). Flight time about 3h 50m.</p>
     <div class="fares" id="best-fares"></div>
   </section>
 
   <section class="card">
     <h2>Live fares: SAS, Norwegian, Ryanair</h2>
-    <p class="sub">Live prices per airline and date.</p>
+    <p class="sub">Cheapest nonstop fares per airline, checked Sun 11 Oct 2026, 23:14. Tap a fare to open that airline's booking search for that date.</p>
     <div class="fares" id="live-fares"></div>
     <div class="airlines">
       <span class="chip">SAS</span><span class="chip">Norwegian</span><span class="chip">Ryanair</span>
     </div>
+    <p class="avoid" id="avoid"></p>
     <p class="sub" style="margin:10px 0 0">Only these three airlines fly Copenhagen to Malaga nonstop.</p>
+    <p class="sub" style="margin:4px 0 0;font-size:.75rem">Prices found via Google Flights.</p>
   </section>
 
   <section class="card">
@@ -109,16 +120,41 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:0 16px 32px}
 <!-- ===================== FARE DATA: EDIT HERE ===================== -->
 <script id="fare-data">
 const FARE_DATA = {
-  lastUpdated: "Sun 11 Oct 2026, 23:10 (Copenhagen time, UTC+2)",
-  // Advertised starting fares (one way, 1 adult, DKK)
+  lastUpdated: "Sun 11 Oct 2026, 23:14 (Copenhagen time, UTC+2)",
+  // Best fares (one way, 1 adult, DKK), confirmed live 11 Oct 2026 23:14
   best: [
-    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "06:10", price: 187, approx: true },
-    { airline: "Ryanair", date: "Wed 6 Jan 2027",  dep: "06:00", price: 187, approx: true },
-    { airline: "Ryanair", date: "Sat 5 Dec 2026",  dep: "14:50", price: 229, approx: true }
+    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "06:10", price: 187, approx: false,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Wed 6 Jan 2027",  dep: "06:00", price: 202, approx: false,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2027-01-06&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Sat 5 Dec 2026",  dep: "14:50", price: 229, approx: false,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-05&isReturn=false&originIata=CPH&destinationIata=AGP" }
   ],
   // Live fares: add rows like
-  // { airline: "SAS", date: "Fri 4 Dec 2026", dep: "10:35", price: 450 }
-  live: []
+  // { airline: "SAS", date: "Fri 4 Dec 2026", dep: "10:35", price: 450,
+  //   link: "https://www.flysas.com/dk-en/book/flights?search=OW_CPH-AGP-20261204_a1c0i0y0&view=upsell&bookingFlow=revenue" }
+  // link is optional; linkLabel overrides the button text (default "Book on <airline>")
+  // Live fares from Google Flights, nonstop, one way, 1 adult, checked Sun 11 Oct 2026 23:14
+  live: [
+    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "06:10 → 10:00", price: 187,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Wed 6 Jan 2027", dep: "06:00 → 09:50", price: 202,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2027-01-06&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Sat 5 Dec 2026", dep: "14:50 → 18:40", price: 229,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-05&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Sat 21 Nov 2026", dep: "14:50 → 18:40", price: 292,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-21&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "SAS", date: "Sat 5 Dec 2026", dep: "15:30 → 19:20 or 06:05 → 09:55", price: 454,
+      link: "https://www.flysas.com/dk-en/book/flights?search=OW_CPH-AGP-20261205_a1c0i0y0&view=upsell&bookingFlow=revenue" },
+    { airline: "SAS", date: "Sat 21 Nov 2026", dep: "06:05 → 09:55", price: 460,
+      link: "https://www.flysas.com/dk-en/book/flights?search=OW_CPH-AGP-20261121_a1c0i0y0&view=upsell&bookingFlow=revenue" },
+    { airline: "SAS", date: "Sat 6 Mar 2027", dep: "06:05 → 09:55", price: 474,
+      link: "https://www.flysas.com/dk-en/book/flights?search=OW_CPH-AGP-20270306_a1c0i0y0&view=upsell&bookingFlow=revenue" },
+    { airline: "Norwegian", date: "Sat 7 Nov 2026", dep: "20:15 → 23:55", price: 479,
+      link: "https://www.norwegian.com/en/ipc/availability/avaday?D_City=CPH&A_City=AGP&TripType=1&D_Day=07&D_Month=202611&AdultCount=1&ChildCount=0&InfantCount=0&IncludeTransit=false&CurrencyCode=DKK",
+      note: "479 DKK on most dates Nov to Jan" }
+  ],
+  avoid: "24 Oct (~1,041+), 19 Dec (~1,229+), 13 Feb (~1,009+), 20 Mar (~1,799+)"
 };
 </script>
 <!-- ================================================================ -->
@@ -126,10 +162,19 @@ const FARE_DATA = {
 <script>
 (function(){
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function safe(u){return /^https:\/\//i.test(u||"")?u:"";}
   function row(f,isBest){
-    return '<div class="fare'+(isBest?' best':'')+'"><div><div class="date">'+esc(f.date)+
-      (isBest?'<span class="tag">Lowest</span>':'')+'</div><div class="meta">'+esc(f.airline)+' · departs '+esc(f.dep)+' · direct</div></div>'+
-      '<div class="price">'+(f.approx?'<small>about </small>':'')+esc(f.price)+' <small>DKK</small></div></div>';
+    var link=safe(f.link), src=safe(f.source);
+    var inner='<div><div class="date">'+esc(f.date)+
+      (isBest?'<span class="tag">Lowest</span>':'')+'</div><div class="meta">'+esc(f.airline)+' · departs '+esc(f.dep)+' · direct'+(f.note?' · '+esc(f.note):'')+'</div></div>'+
+      '<div class="price">'+(f.approx?'<small>about </small>':'')+esc(f.price)+' <small>DKK</small></div>';
+    var main=link?'<a class="main" href="'+esc(link)+'" target="_blank" rel="noopener">'+inner+'</a>':'<div class="main" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex:1">'+inner+'</div>';
+    var acts='';
+    if(link||src){
+      acts='<div class="actions">'+(link?'<a class="btn" href="'+esc(link)+'" target="_blank" rel="noopener">'+esc(f.linkLabel||("Book on "+f.airline))+'</a>':'')+
+        (src?'<a class="src" href="'+esc(src)+'" target="_blank" rel="noopener">Source</a>':'')+'</div>';
+    }
+    return '<div class="fare'+(isBest?' best':'')+'">'+main+acts+'</div>';
   }
   function render(id,list,emptyHtml){
     var el=document.getElementById(id);
@@ -139,6 +184,7 @@ const FARE_DATA = {
   }
   render("best-fares",FARE_DATA.best,'<div class="empty">No fares yet.</div>');
   render("live-fares",FARE_DATA.live,'<div class="empty"><span class="pulse"></span>Live fares are being collected and will appear here.</div>');
+  if(FARE_DATA.avoid){document.getElementById("avoid").innerHTML="<strong>Pricey dates to avoid:</strong> "+esc(FARE_DATA.avoid)+" DKK";}
   document.getElementById("updated").textContent=FARE_DATA.lastUpdated;
 })();
 </script>
