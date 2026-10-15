@@ -86,14 +86,14 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:0 16px 32px}
   <section class="card">
     <h2>Outbound: best direct fares right now</h2>
     <p class="sub" style="margin:0 0 4px;font-weight:700;color:var(--accent)">Copenhagen (CPH) → Malaga (AGP)</p>
-    <p class="sub">Confirmed live on Google Flights (Wed 14 Oct 2026, 09:30) and cross-checked on Ryanair's own site. Flight time about 3h 50m.</p>
+    <p class="sub">Confirmed live on Google Flights (Thu 15 Oct 2026, 09:21) and cross-checked on Ryanair's own site. Flight time about 3h 50m.</p>
     <div class="fares" id="best-fares"></div>
   </section>
 
   <section class="card">
     <h2>Outbound live fares: SAS, Norwegian, Ryanair</h2>
     <p class="sub" style="margin:0 0 4px;font-weight:700;color:var(--accent)">Copenhagen (CPH) → Malaga (AGP)</p>
-    <p class="sub">Cheapest nonstop fares per airline, checked Wed 14 Oct 2026, 09:30. Tap a fare to open that airline's booking search for that date.</p>
+    <p class="sub">Cheapest nonstop fares per airline, checked Thu 15 Oct 2026, 09:21. Tap a fare to open that airline's booking search for that date.</p>
     <div class="fares" id="live-fares"></div>
     <div class="airlines">
       <span class="chip">SAS</span><span class="chip">Norwegian</span><span class="chip">Ryanair</span>
@@ -107,7 +107,7 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:0 16px 32px}
   <section class="card">
     <h2>Return live fares: Malaga to Copenhagen</h2>
     <p class="sub" style="margin:0 0 4px;font-weight:700;color:var(--accent)">Malaga (AGP) → Copenhagen (CPH)</p>
-    <p class="sub">Cheapest nonstop return-leg fares, one way, 1 adult, checked Wed 14 Oct 2026, 09:30. Tap a fare to open that airline's booking search for that date.</p>
+    <p class="sub">Cheapest nonstop return-leg fares, one way, 1 adult, checked Thu 15 Oct 2026, 09:21. Tap a fare to open that airline's booking search for that date.</p>
     <div class="fares" id="return-fares"></div>
     <p class="avoid" id="return-avoid"></p>
     <p class="sub" style="margin:10px 0 0" id="sas-return"></p>
@@ -146,91 +146,91 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:0 16px 32px}
 <!-- ===================== FARE DATA: EDIT HERE ===================== -->
 <script id="fare-data">
 const FARE_DATA = {
-  lastUpdated: "Wed 14 Oct 2026, 09:30 (Copenhagen time, UTC+02:00)",
-  // Best fares (one way, 1 adult, DKK), confirmed live on Google Flights 14 Oct 2026 09:30
+  lastUpdated: "Thu 15 Oct 2026, 09:21 (Copenhagen time, UTC+02:00)",
+  // Best fares (one way, 1 adult, DKK), confirmed live on Google Flights Thu 15 Oct 2026, 09:21
   best: [
     { airline: "Ryanair", date: "Wed 25 Nov 2026", dep: "06:00", price: 172, approx: false,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-25&isReturn=false&originIata=CPH&destinationIata=AGP" },
-    { airline: "Ryanair", date: "Wed 4 Nov 2026", dep: "06:00", price: 202, approx: false,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-04&isReturn=false&originIata=CPH&destinationIata=AGP" },
-    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "06:10", price: 202, approx: false,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=CPH&destinationIata=AGP" }
+    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "06:10", price: 217, approx: false,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Mon 2 Nov 2026", dep: "19:30", price: 219, approx: false,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-02&isReturn=false&originIata=CPH&destinationIata=AGP" }
   ],
   // Row format: { airline, date, dep, price, link, note? }. Link date must match the fare date.
-  // Live fares from Google Flights, nonstop, one way, 1 adult, checked Wed 14 Oct 2026 09:30
+  // Live fares from Google Flights, nonstop, one way, 1 adult, checked Thu 15 Oct 2026, 09:21 (Copenhagen time, UTC+02:00)
   live: [
     { airline: "Ryanair", date: "Wed 25 Nov 2026", dep: "06:00 → 09:50", price: 172,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-25&isReturn=false&originIata=CPH&destinationIata=AGP",
       note: "also 14:20 → 18:10 for 232" },
-    { airline: "Ryanair", date: "Wed 4 Nov 2026", dep: "06:00 → 09:50", price: 202,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-04&isReturn=false&originIata=CPH&destinationIata=AGP",
-      note: "also 14:20 → 18:10 for 399" },
-    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "06:10 → 10:00", price: 202,
+    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "06:10 → 10:00", price: 217,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=CPH&destinationIata=AGP",
       note: "also 15:10 → 19:00 for 247" },
     { airline: "Ryanair", date: "Mon 2 Nov 2026", dep: "19:30 → 23:20", price: 219,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-02&isReturn=false&originIata=CPH&destinationIata=AGP" },
-    { airline: "Ryanair", date: "Wed 11 Nov 2026", dep: "06:00 → 09:50", price: 219,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-11&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Sun 8 Nov 2026", dep: "18:40 → 22:30", price: 219,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-08&isReturn=false&originIata=CPH&destinationIata=AGP" },
     { airline: "Ryanair", date: "Wed 18 Nov 2026", dep: "06:00 → 09:50", price: 219,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-18&isReturn=false&originIata=CPH&destinationIata=AGP" },
     { airline: "Ryanair", date: "Tue 24 Nov 2026", dep: "13:25 → 17:15", price: 219,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-24&isReturn=false&originIata=CPH&destinationIata=AGP" },
-    { airline: "Ryanair", date: "Wed 6 Jan 2027", dep: "06:00 → 09:50", price: 224,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2027-01-06&isReturn=false&originIata=CPH&destinationIata=AGP",
-      note: "also 14:20 → 18:10 for 322" },
-    { airline: "Ryanair", date: "Sat 5 Dec 2026", dep: "14:50 → 18:40", price: 229,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-05&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Wed 11 Nov 2026", dep: "06:00 → 09:50", price: 220,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-11&isReturn=false&originIata=CPH&destinationIata=AGP" },
     { airline: "Ryanair", date: "Fri 20 Nov 2026", dep: "06:10 → 10:00", price: 229,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-20&isReturn=false&originIata=CPH&destinationIata=AGP" },
     { airline: "Ryanair", date: "Mon 23 Nov 2026", dep: "06:30 → 10:20", price: 229,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-23&isReturn=false&originIata=CPH&destinationIata=AGP" },
     { airline: "Ryanair", date: "Wed 2 Dec 2026", dep: "14:20 → 18:10", price: 229,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-02&isReturn=false&originIata=CPH&destinationIata=AGP" }
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-02&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Thu 3 Dec 2026", dep: "16:15 → 20:05", price: 229,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-03&isReturn=false&originIata=CPH&destinationIata=AGP" },
+    { airline: "Ryanair", date: "Sat 5 Dec 2026", dep: "14:50 → 18:40", price: 229,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-05&isReturn=false&originIata=CPH&destinationIata=AGP",
+      note: "also 15:30 → 19:20 for 480" }
   ],
-  avoid: "20 Mar (~1,799+), 19 Dec (~1,229+), 13 Feb (~1,009+), 24 Oct (~808+)",
-  sasOutLink: "https://www.flysas.com/dk-en/book/flights?search=OW_CPH-AGP-20261205_a1c0i0y0&view=upsell&bookingFlow=revenue",
+  avoid: "20 Mar (~1,599+), 19 Dec (~1,129+), 13 Feb (~1,129+), 24 Oct (~915+)",
+  sasOutLink: "https://www.flysas.com/dk-en/book/flights?search=OW_CPH-AGP-20270306_a1c0i0y0&view=upsell&bookingFlow=revenue",
 
-  // RETURN: Malaga (AGP) to Copenhagen (CPH), Google Flights, nonstop, one way, 1 adult, checked Wed 14 Oct 2026 09:30
+  // RETURN: Malaga (AGP) to Copenhagen (CPH), Google Flights, nonstop, one way, 1 adult, checked Thu 15 Oct 2026, 09:21 (Copenhagen time, UTC+02:00)
   returnLive: [
     { airline: "Ryanair", date: "Thu 17 Dec 2026", dep: "20:40 → 00:25 (+1 day)", price: 134,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-17&isReturn=false&originIata=AGP&destinationIata=CPH" },
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-17&isReturn=false&originIata=AGP&destinationIata=CPH",
+      note: "also 15:50 → 19:30 for 302" },
+    { airline: "Ryanair", date: "Wed 16 Dec 2026", dep: "18:45 → 22:30", price: 149,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-16&isReturn=false&originIata=AGP&destinationIata=CPH",
+      note: "also 10:25 → 14:10 for 217" },
     { airline: "Ryanair", date: "Mon 21 Dec 2026", dep: "20:45 → 00:30 (+1 day)", price: 149,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-21&isReturn=false&originIata=AGP&destinationIata=CPH",
       note: "also 06:25 → 10:10 for 187" },
-    { airline: "Ryanair", date: "Wed 16 Dec 2026", dep: "18:45 → 22:30", price: 150,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-16&isReturn=false&originIata=AGP&destinationIata=CPH",
-      note: "also 10:25 → 14:10 for 225" },
     { airline: "Ryanair", date: "Fri 18 Dec 2026", dep: "10:35 → 14:20", price: 157,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-18&isReturn=false&originIata=AGP&destinationIata=CPH",
-      note: "also 19:35 → 23:20 for 165" },
-    { airline: "Ryanair", date: "Sat 12 Dec 2026", dep: "19:15 → 23:00", price: 195,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-12&isReturn=false&originIata=AGP&destinationIata=CPH" },
+      note: "also 19:35 → 23:20 for 164" },
     { airline: "Ryanair", date: "Thu 10 Dec 2026", dep: "20:40 → 00:25 (+1 day)", price: 202,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-10&isReturn=false&originIata=AGP&destinationIata=CPH" },
     { airline: "Ryanair", date: "Tue 15 Dec 2026", dep: "18:10 → 21:55", price: 202,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-15&isReturn=false&originIata=AGP&destinationIata=CPH" },
     { airline: "Ryanair", date: "Fri 22 Jan 2027", dep: "19:35 → 23:20", price: 202,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2027-01-22&isReturn=false&originIata=AGP&destinationIata=CPH" },
+    { airline: "Ryanair", date: "Sat 12 Dec 2026", dep: "19:15 → 23:00", price: 209,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-12&isReturn=false&originIata=AGP&destinationIata=CPH",
+      note: "also 06:55 → 10:35 for 302" },
+    { airline: "Ryanair", date: "Thu 26 Nov 2026", dep: "20:10 → 23:55", price: 219,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-26&isReturn=false&originIata=AGP&destinationIata=CPH" },
+    { airline: "Ryanair", date: "Tue 22 Dec 2026", dep: "18:10 → 21:55", price: 224,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-22&isReturn=false&originIata=AGP&destinationIata=CPH" },
     { airline: "Ryanair", date: "Wed 20 Jan 2027", dep: "18:45 → 22:30", price: 224,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2027-01-20&isReturn=false&originIata=AGP&destinationIata=CPH" },
-    { airline: "Ryanair", date: "Fri 27 Nov 2026", dep: "10:35 → 14:20", price: 229,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=AGP&destinationIata=CPH" },
+    { airline: "Ryanair", date: "Tue 8 Dec 2026", dep: "18:10 → 21:55", price: 229,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-08&isReturn=false&originIata=AGP&destinationIata=CPH" },
     { airline: "Ryanair", date: "Wed 9 Dec 2026", dep: "18:45 → 22:30", price: 229,
       link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-09&isReturn=false&originIata=AGP&destinationIata=CPH" },
-    { airline: "Ryanair", date: "Fri 11 Dec 2026", dep: "10:35 → 14:20", price: 229,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-11&isReturn=false&originIata=AGP&destinationIata=CPH" },
-    { airline: "Ryanair", date: "Sat 23 Jan 2027", dep: "19:15 → 23:00", price: 254,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2027-01-23&isReturn=false&originIata=AGP&destinationIata=CPH" },
-    { airline: "Norwegian", date: "Sat 6 Feb 2027", dep: "06:55 → 10:35", price: 302,
-      link: "https://www.norwegian.com/en/ipc/availability/avaday?D_City=AGP&A_City=CPH&TripType=1&D_Day=06&D_Month=202702&AdultCount=1&ChildCount=0&InfantCount=0&IncludeTransit=false&CurrencyCode=DKK",
-      note: "also 15:50 → 19:30 for 594" },
-    { airline: "Ryanair", date: "Sat 28 Nov 2026", dep: "19:15 → 23:00", price: 377,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-28&isReturn=false&originIata=AGP&destinationIata=CPH" },
-    { airline: "Ryanair", date: "Sat 10 Apr 2027", dep: "17:20 → 21:00", price: 427,
-      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2027-04-10&isReturn=false&originIata=AGP&destinationIata=CPH" }
+    { airline: "Ryanair", date: "Mon 14 Dec 2026", dep: "20:45 → 00:30 (+1 day)", price: 229,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-14&isReturn=false&originIata=AGP&destinationIata=CPH" },
+    { airline: "Ryanair", date: "Wed 23 Dec 2026", dep: "18:45 → 22:30", price: 229,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-23&isReturn=false&originIata=AGP&destinationIata=CPH" },
+    { airline: "Ryanair", date: "Mon 28 Dec 2026", dep: "20:45 → 00:30 (+1 day)", price: 229,
+      link: "https://www.ryanair.com/dk/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-28&isReturn=false&originIata=AGP&destinationIata=CPH" }
   ],
-  returnAvoid: "31 Oct (~2,907+), 3 Jan (~1,981+), 27 Mar (~1,423+), 14 Nov (~945+)",
+  returnAvoid: "31 Oct (~2,993+), 3 Jan (~1,992+), 27 Mar (~1,423+), 14 Nov (~945+)",
   sasReturnLink: "https://www.flysas.com/dk-en/book/flights?search=OW_AGP-CPH-20261212_a1c0i0y0&view=upsell&bookingFlow=revenue"
 };
 </script>
